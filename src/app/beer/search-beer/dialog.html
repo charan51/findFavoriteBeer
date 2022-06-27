@@ -1,0 +1,23 @@
+<h1 mat-dialog-title><p>Enter your preference</p></h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>drink this beer before</mat-label>
+    <input [(ngModel)]="drinkBefore" value="drinkBefore" matInput>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>where you drunk?</mat-label>
+    <input [(ngModel)]="drinkwhere" value="drinkwhere"  matInput>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>when you drunk?</mat-label>
+    <input [(ngModel)]="drinkdate" value="drinkdate" type="date" matInput>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Your taste note</mat-label>
+    <textarea [(ngModel)]="drinkNote" value="drinkNote" matInput></textarea>  
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data.beerID" (click)="addFav(data.beerID, data.list)" cdkFocusInitial>Like</button>
+  <button mat-button [mat-dialog-close]="data.beerID" (click)="removeFav(data.beerID, data.list)" cdkFocusInitial>Unlike</button>
+</div>

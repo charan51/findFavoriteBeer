@@ -1,0 +1,41 @@
+<h2>Welcome {{username}}</h2>
+<h3>Find your Beer</h3>
+<div class="card-content">
+    <form (ngSubmit)="onSearch()" class="beerForm" [formGroup]="findBeer">
+        <mat-form-field appearance="fill">
+            <mat-label>Fermentation Type</mat-label>
+            <input matInput formControlName="fermentationType">
+        </mat-form-field>
+        <div>
+            <p>Bitterness</p>
+            <mat-slider thumbLabel [displayWith]="formatLabel" min="0" formControlName="bitterness" max="120"
+                aria-label="units"></mat-slider>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Food</mat-label>
+            <input formControlName="food" matInput>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Find</button>
+    </form>
+    <mat-card *ngFor="let beer of beerList">
+        <mat-card-header>
+            <div mat-card-avatar ></div>
+            <mat-card-title>{{beer.name}}</mat-card-title>
+            <mat-card-subtitle>{{beer.tagline}}</mat-card-subtitle>
+            <button (click)="openDialog(beer.id)" [attr.data-beerID]="beer.id" mat-icon-button color="warn"
+                aria-label="beer.name">
+                <mat-icon *ngIf="beer.fav; else notFav">favorite</mat-icon>
+                <ng-template #notFav>
+                    <mat-icon>favorite_border</mat-icon>
+                </ng-template>
+            </button>
+
+        </mat-card-header>
+        <img [src]="beer.image_url" alt="beer.name">
+        <mat-card-content>
+            <p>
+                {{beer.description}}
+            </p>
+        </mat-card-content>
+    </mat-card>
+</div>

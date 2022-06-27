@@ -1,0 +1,12 @@
+
+<div class="container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="userInfo">
+
+    <h1>Welcome and find your favorite beer</h1>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter your name</mat-label>
+            <input matInput formControlName="username">
+        </mat-form-field>
+        <button mat-raised-button color="primary">Find</button>
+    </form>
+</div>

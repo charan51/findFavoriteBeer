@@ -1,0 +1,20 @@
+img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin: 10px 0;
+}
+.card-content{
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(4, 22%);
+    grid-column-gap: 4%;
+    grid-row-gap: 40px;
+}
+.beerForm{
+  display: grid;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  grid-column: span 4;
+}
