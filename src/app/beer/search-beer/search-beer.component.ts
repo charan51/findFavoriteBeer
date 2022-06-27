@@ -116,7 +116,7 @@ export class DialogOverviewExampleDialog {
     const checkID = ids.includes(id.toString());
     if (checkID) {
       const dataWithFavorites = list.map(item => {
-        if (item.i === id) {
+        if (item.id === id) {
           return { ...item, fav: false }
         } else {
           return item;
